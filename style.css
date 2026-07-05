@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, #f8fafc, #f1f5f9);
+    color: #0f172a;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 60%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 60%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.glass-effect-nav {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+    background: linear-gradient(to right, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.admin-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: #475569;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.admin-btn:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: #0f172a;
+    transform: translateY(-1px);
+}
+
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 30px;
+}
+.main-layout.single-col {
+    max-width: 600px;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
+    backdrop-filter: blur(16px);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.form-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+.form-header p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* Form Styles */
+.input-group {
+    margin-bottom: 20px;
+}
+.row {
+    display: flex;
+    gap: 20px;
+}
+.half-width {
+    flex: 1;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+.input-group input, .custom-select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #fff;
+    color: #0f172a;
+    outline: none;
+}
+.custom-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 5 8 10 13 5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+.custom-select option {
+    background: #fff;
+    color: #0f172a;
+}
+
+.input-group input:focus, .custom-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    background: #fff;
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Date picker icon color (no invert for light theme) */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+}
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Header Row for Table Section */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.header-row h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Table Styles */
+.table-section {
+    width: 100%;
+}
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #fff;
+}
+th, td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 500;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+tr:hover td {
+    background-color: #f1f5f9;
+}
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    letter-spacing: 0.3px;
+}
+.status-in {
+    background: #dcfce7;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+}
+.status-out {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .glass-effect {
+        padding: 25px;
+    }
+}

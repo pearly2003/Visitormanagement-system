@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Visitor Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar glass-effect-nav">
+        <div class="nav-content">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Grand Residency</span>
+            </div>
+            <a href="admin.html" class="admin-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Admin Panel
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-layout single-col">
+        <div class="form-section">
+            <div class="form-wrapper glass-effect">
+                <div class="form-header">
+                    <h2>Visitor Entry</h2>
+                    <p>Register new visitors securely</p>
+                </div>
+                <form id="visitorForm" name="google-sheet">
+                    <div class="input-group">
+                        <label for="VisitorName">Visitor Name</label>
+                        <input type="text" id="VisitorName" name="VisitorName" required placeholder="Enter visitor's full name" maxlength="50" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '')" title="Letters and spaces only">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-group half-width">
+                            <label for="Mobile">Mobile Number</label>
+                            <input type="tel" id="Mobile" name="Mobile" required placeholder="10-digit number" pattern="[0-9]{10}" maxlength="10" minlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)">
+                        </div>
+                        
+                        <div class="input-group half-width">
+                            <label for="VehicleNo">Vehicle Number</label>
+                            <input type="text" id="VehicleNo" name="VehicleNo" placeholder="e.g. MH-01-AB-1234" maxlength="12" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9-]/g, '')">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-group half-width">
+                            <label for="ResidentName">Resident Name</label>
+                            <input type="text" id="ResidentName" name="ResidentName" required placeholder="Name of resident" maxlength="50" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '')" title="Letters and spaces only">
+                        </div>
+
+                        <div class="input-group half-width">
+                            <label for="FlatNo">Flat Number</label>
+                            <input type="text" id="FlatNo" name="FlatNo" required placeholder="e.g. A-101" maxlength="10" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9-]/g, '')">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group half-width">
+                            <label for="PurposeSelect">Purpose</label>
+                            <select id="PurposeSelect" required class="custom-select" onchange="document.getElementById('OtherPurposeGroup').style.display = this.value === 'Other' ? 'block' : 'none'; if(this.value !== 'Other') document.getElementById('PurposeText').value = '';">
+                                <option value="" disabled selected>Select Purpose</option>
+                                <option value="Guest">Guest</option>
+                                <option value="Delivery">Delivery</option>
+                                <option value="Maintenance">Maintenance</option>
+                                <option value="Maid">Maid</option>
+                                <option value="Other">Other (Specify)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group half-width">
+                            <label for="EntryTime">Entry Date & Time</label>
+                            <input type="datetime-local" id="EntryTime" name="EntryTime" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group" id="OtherPurposeGroup" style="display: none;">
+                        <label for="PurposeText">Specify Other Purpose</label>
+                        <input type="text" id="PurposeText" placeholder="Please specify purpose" maxlength="50">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        Save Record
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
